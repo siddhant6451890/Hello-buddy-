@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hello Buddy - Video Calls</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HOME PAGE -->
+    <div id="homePage" class="page">
+
+        <div class="logo">
+            <div class="logo-icon">HB</div>
+            <h1>Hello Buddy</h1>
+        </div>
+
+        <div class="hero">
+
+            <div class="hero-text">
+
+                <span class="badge">✨ CONNECT ANYWHERE</span>
+
+                <h2>
+                    Meet. Talk.<br>
+                    <span>Stay Connected.</span>
+                </h2>
+
+                <p>
+                    Hello Buddy makes it easy to connect with your
+                    friends, family and team through video calls.
+                </p>
+
+            </div>
+
+
+            <div class="meeting-card">
+
+                <h2>Start a Meeting 🎥</h2>
+
+                <input
+                    type="text"
+                    id="userName"
+                    placeholder="Enter your name"
+                >
+
+                <button class="primary-btn" onclick="createMeeting()">
+                    🎥 Create New Meeting
+                </button>
+
+                <div class="divider">
+                    <span>OR</span>
+                </div>
+
+                <input
+                    type="text"
+                    id="roomId"
+                    placeholder="Enter Room ID"
+                >
+
+                <button class="secondary-btn" onclick="joinMeeting()">
+                    🚀 Join Meeting
+                </button>
+
+            </div>
+
+        </div>
+
+        <footer>
+            © 2026 Hello Buddy • Created with ❤️
+        </footer>
+
+    </div>
+
+
+
+    <!-- MEETING PAGE -->
+
+    <div id="meetingPage" class="meeting-page">
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <div class="meeting-logo">
+
+                <div class="small-logo">HB</div>
+
+                <div>
+                    <h2>Hello Buddy</h2>
+                    <span id="meetingRoomText">
+                        Room
+                    </span>
+                </div>
+
+            </div>
+
+
+            <button
+                class="room-btn"
+                onclick="copyRoom()"
+            >
+                🔗 Copy Room
+            </button>
+
+        </header>
+
+
+
+        <!-- VIDEO AREA -->
+
+        <main class="video-area">
+
+            <div class="video-card main-video">
+
+                <video
+                    id="localVideo"
+                    autoplay
+                    playsinline
+                    muted
+                ></video>
+
+                <div
+                    id="cameraPlaceholder"
+                    class="camera-placeholder"
+                >
+
+                    <div class="avatar" id="avatar">
+                        U
+                    </div>
+
+                    <h3 id="displayName">
+                        User
+                    </h3>
+
+                    <p>Camera is off</p>
+
+                </div>
+
+
+                <div class="video-name">
+                    <span id="videoUserName">
+                        You
+                    </span>
+
+                    <span
+                        id="micIndicator"
+                        class="mic-indicator"
+                    >
+                        🎤
+                    </span>
+
+                </div>
+
+            </div>
+
+        </main>
+
+
+
+        <!-- CONTROLS -->
+
+        <div class="controls">
+
+            <button
+                id="micBtn"
+                class="control-btn"
+                onclick="toggleMic()"
+            >
+                🎤
+                <span>Mic</span>
+            </button>
+
+
+            <button
+                id="cameraBtn"
+                class="control-btn"
+                onclick="toggleCamera()"
+            >
+                📹
+                <span>Camera</span>
+            </button>
+
+
+            <button
+                id="screenBtn"
+                class="control-btn"
+                onclick="shareScreen()"
+            >
+                🖥️
+                <span>Share</span>
+            </button>
+
+
+            <button
+                class="control-btn"
+                onclick="toggleChat()"
+            >
+                💬
+                <span>Chat</span>
+            </button>
+
+
+            <button
+                class="end-btn"
+                onclick="endMeeting()"
+            >
+                📞
+                <span>End</span>
+            </button>
+
+        </div>
+
+
+
+        <!-- CHAT PANEL -->
+
+        <div
+            id="chatPanel"
+            class="chat-panel"
+        >
+
+            <div class="chat-header">
+
+                <h3>💬 Meeting Chat</h3>
+
+                <button onclick="toggleChat()">
+                    ✕
+                </button>
+
+            </div>
+
+
+            <div
+                id="chatMessages"
+                class="chat-messages"
+            >
+
+                <div class="message system-message">
+                    Welcome to Hello Buddy! 👋
+                </div>
+
+            </div>
+
+
+            <div class="chat-input">
+
+                <input
+                    type="text"
+                    id="messageInput"
+                    placeholder="Write a message..."
+                    onkeypress="handleEnter(event)"
+                >
+
+                <button onclick="sendMessage()">
+                    ➤
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
